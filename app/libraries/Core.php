@@ -6,7 +6,7 @@
    */
   class Core {
     protected $currentController = 'UserController';
-    protected $currentMethod = 'login';
+    protected $currentMethod = 'visiteur';
     protected $params = [];
 
     public function __construct(){

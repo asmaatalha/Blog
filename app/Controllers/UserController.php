@@ -72,6 +72,13 @@ class UserController extends Controller
     //     }
     // }
 
+
+    public function visiteur()
+    {
+        $visiteur = $this->userModel->getVisiteur();
+        $this->view('UsersView/visiteur', $visiteur);
+    }
+
     public function index()
     {
         $blog = $this->userModel->getBlog();

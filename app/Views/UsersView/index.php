@@ -5,7 +5,7 @@
 
 
     <form class="form-inline" action="<?php echo URLROOT; ?>/UserController/signup" method="post">
-        <a type="submit" href="<?php echo URLROOT; ?>/UserController/insert" class="form-control btn " id="butt" name="add">Add</a>
+        <a type="submit" href="<?php echo URLROOT; ?>/UserController/insert" class="form-control btn" id="butt" name="add">Add</a>
     </form>
     <div>
         <h1 id="titre" class="text-center">La Princesse de Clèves</h1>

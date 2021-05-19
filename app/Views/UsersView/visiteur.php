@@ -1,15 +1,17 @@
 <!-- header -->
 <?php require APPROOT .'/views/inc/header.php';?>
+<?php require_once APPROOT . '/Views/inc/navbar.php'; ?>
+
 <!-- end header -->
 
 
     <form class="form-inline" action="<?php echo URLROOT; ?>/UserController/signup" method="post">
-        <!-- <a type="submit" href="UserController/insert" class="text-white bg-dark" name="add">Add</a> -->
+        <a type="submit" href="UserController/insert" class="form-control btn" id="butt" name="add">Add</a>
 
     </form>
     <div>
         <h1>La Princesse de Clèves</h1>
-        <img src="../Image_Blog3.png" alt="img" class="img-thumbnail" width="400" height="400">
+        <img src="Image_Blog3.png" alt="img" class="img-thumbnail" width="400" height="400">
         <p>La Princesse de Clèves est un roman de Madame de La 
             Fayette, d'abord publié anonymement en 1678.
             Le roman prend pour cadre la vie à la cour des Valois 
@@ -27,7 +29,7 @@
 
             <h2><?php echo $row->Titre; ?></h2>
 
-            <img src="../Image_Blog2.png" alt="img" class="img-thumbnail" width="400" height="400">
+            <img src="Image_Blog2.png" alt="img" class="img-thumbnail" width="400" height="400">
 
             <span><?php $time = strtotime($row->Date); $day = date('D,d M Y', $time); echo $day; ?></span>
             

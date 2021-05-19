@@ -35,6 +35,12 @@ class UserModel
         
         
     // }
+
+    public function getVisiteur()
+    {
+        $this->database->query("SELECT * FROM blog");
+        return $this->database->resultSet();
+    }
     
     public function getBlog()
     {
