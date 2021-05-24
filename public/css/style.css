@@ -9,12 +9,14 @@
 }
 #login{
     margin-top: 50px;
-    border: 1px solid #FFFFFF;
+    /* border: 1px solid #FFFFFF; */
+    background-color: rgb(255, 255, 255);
 }
-#form-login{
+#form{
     padding: 20px;
 }
 #butt{
     background-color: rgb(0, 0, 0);
     color: rgb(253, 253, 253);
+    
 }

@@ -18,59 +18,17 @@ class UserController extends Controller
             ];
             if($this->userModel->login($data)){
                 redirect('UserController/index');
-            }else{
+            }
+            else{
                 $this->view('UsersView/login');
             }
-            
-            
-            
         }
         else {
-            
             $this->view('UsersView/login');
         }
     }
 
-
-
-
-    // public function add()
-    // {
-    //     if (isset($_POST['add'])) {
-    //         $this->view('UserView/insert');
-    //     }
-    // }
-
-
-
-
-
-    // public function login()
-    // {
-    //     $this->userSession->startSession();
-
-    //     if (isset($_SESSION['email'])) {
-    //         header('location:' . URLROOT . '/UserController/login');
-    //     }
-    //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-    //         $data = [
-    //             'email' => trim($_POST['email']),
-    //             'password' => trim($_POST['pwd']),
-    //             'email_err' => '',
-    //             'password_err' => '',
-    //         ];
-    //         //email validation
-    //         if (empty($data['email'])) {
-    //             $data['email_err'] = 'please enter your email';
-    //         }
-    //         //password validation
-    //         if (empty($data['password'])) {
-    //             $data['password_err'] = 'please enter your password';
-    //         }
-    //     }
-    // }
+    
 
 
     public function visiteur()
@@ -83,6 +41,10 @@ class UserController extends Controller
     {
         $blog = $this->userModel->getBlog();
         $this->view('UsersView/index', $blog); 
+
+
+
+
     }
 
     public function insert()
@@ -95,6 +57,9 @@ class UserController extends Controller
             ];
             $this->userModel->addBlog($data1);
             header('location:' . URLROOT . '/UserController/index');
+
+        
+
         }
         else {
             $this->view('UsersView/insert');
