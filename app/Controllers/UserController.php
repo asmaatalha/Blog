@@ -30,22 +30,32 @@ class UserController extends Controller
 
     
 
-
+ // ***********************
     public function visiteur()
     {
-        $visiteur = $this->userModel->getVisiteur();
-        $this->view('UsersView/visiteur', $visiteur);
+        $visiteur2 = $this->userModel->getVisiteur();
+        $this->view('UsersView/visiteur', $visiteur2);
     }
 
+ // ***********************
+
+ // ***********************
+    public function home()
+    {
+        $home = $this->userModel->getHome();
+        $this->view('UsersView/home', $home);
+    }
+
+ // ***********************
+ // ***********************
     public function index()
     {
         $blog = $this->userModel->getBlog();
         $this->view('UsersView/index', $blog); 
-
-
-
-
     }
+ // ***********************
+
+    
 
     public function insert()
     {
@@ -57,9 +67,6 @@ class UserController extends Controller
             ];
             $this->userModel->addBlog($data1);
             header('location:' . URLROOT . '/UserController/index');
-
-        
-
         }
         else {
             $this->view('UsersView/insert');
@@ -78,7 +85,8 @@ class UserController extends Controller
             header('location:' . URLROOT . '/UserController/index');
         }
         else {
-            $this->view('UsersView/update');
+            $data = $this->userModel->getBlogById($id);
+            $this->view('UsersView/update', $data);
         }
     }
 
@@ -87,5 +95,30 @@ class UserController extends Controller
         $this->userModel->deleteBlog($id);
         header('location:' . URLROOT . '/UserController/index');
         
+    }
+
+    public function search()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($data = $this->userModel->searchBlog()) {
+                $this->view('UsersView/search', $data);
+            }
+            else {
+                $data = ["Search not found"];
+            }
+        }
+
+
+
+
+        // if ($_SERVER($_POST['search'])) {
+        //     $data3 = [
+        //         'serch_titre' => $_POST['serch'],
+        //     ];
+        //     $this->userModel->searchBlog();
+        // }
+        // else {
+            
+        // }
     }
 }

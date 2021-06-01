@@ -1,4 +1,9 @@
-const username = document.getElementById('username')
+$(document).ready(function() {
+    $('#discript').summernote();
+});
+
+
+const name = document.getElementById('username')
 const email = document.getElementById('email')
 const password = document.getElementById('password')
 const form = document.getElementById('form')

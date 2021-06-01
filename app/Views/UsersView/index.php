@@ -4,56 +4,76 @@
 <!-- end header -->
 
 
-    <form class="form-inline" action="<?php echo URLROOT; ?>/UserController/signup" method="post">
-        <a type="submit" href="<?php echo URLROOT; ?>/UserController/insert" class="form-control btn" id="butt" name="add">Add</a>
-    </form>
-    <div>
-        <h1 id="titre" class="text-center">La Princesse de Clèves</h1>
+<div class="pt-3">
+
+    <div class="d-flex justify-content-between">
+        <form class="form-inline" action="<?php echo URLROOT; ?>/UserController/signup" method="post">
+            <a type="submit" href="<?php echo URLROOT; ?>/UserController/insert" class="form-control btn" id="butt" name="add">Add</a>
+        </form>
+
+        <form action="<?php echo URLROOT; ?>/UserController/search" method="post">
+            <div class="input-group">
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" name="serch" placeholder="Search"/>
+                </div>
+                <button type="button" class="btn btn-outline-primary" name="search">search</button>
+            </div>
+        </form>
     </div>
-    <div class="row">
-        <div class="col pt-2">
-            <img src="../Image_Blog3.png" alt="img" class="img-thumbnail" width="400" height="400">
-        </div>
-        <div class="col-6 pt-5">
-            <p>La Princesse de Clèves est un roman de Madame de La 
-            Fayette, d'abord publié anonymement en 1678.
-            Le roman prend pour cadre la vie à la cour des Valois 
-            « dans les dernières années du règne de Henri Second », 
-            comme l'indique le narrateur dans les premières lignes 
-            du récit. Il peut donc être défini comme un roman 
-            historique, même s'il inaugure, par bien des aspects 
-            (souci de vraisemblance, construction rigoureuse, 
-            introspection des personnages) ...
-            </p>
-        </div>
-    </div>
-    <div>
-        <h1 id="titre" class="pt-5">Chapitres:</h1>
+
+
+    <div class="card-columns pt-3">
+        <?php $count = 0; ?>
         <?php foreach($data as $row): ?>
-            <div class="row pt-5">
+            <div class="card" style="" id="<?php echo $row -> id;?>">
+                
+                <img src="../Image_Blog2.png" alt="img" class="card-img-top" width="300" style="border:none">
+                
+                <div class="card-body">
+                    <div class="">
+                        <h4 class="card-title"><?php echo $row->Titre; ?></h4>
 
-                <div class="col">
-                    <img src="../Image_Blog2.png" alt="img" class="img-thumbnail" width="400" height="400">
-                </div>
+                        <div class="">
+                            <img src="../calendar.png" alt="calendar" width="30" height="30">
+                            <span class=""><?php $time = strtotime($row->Date); $day = date('D,d M Y', $time); echo $day; ?></span>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="<?php echo URLROOT;?>/UserController/update/<?php echo $row -> id; ?>" class="btn btn-outline-success col-sm-4 mt-sm-4"> Update</a>
+                        <a href="<?php echo URLROOT;?>/UserController/delete/<?php echo $row -> id; ?>" class="btn btn-outline-danger col-sm-3 mt-sm-4"> Delete</a>
+                        <!--  Model button -->
+                        <button id="myBtn" data-toggle="modal" data-target="#<?php echo $count; ?>" class="myBtn btn btn-outline-primary col-sm-4 mt-sm-4">view</button>
+                    </div>
 
-                <div class="col-5 pt-5">
-                    <h2><?php echo $row->Titre;?></h2>
-                    <p><?php echo $row->Discription;?></p>
-                </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="<?php echo $count; ?>">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
 
-                <div class="col pt-5">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Modal Title</h5>
+                                </div>
 
-                    <span class="row mb-sm-5"><?php $time = strtotime($row->Date); $day = date('D,d M Y', $time); echo $day; ?></span>
-                    <div class="row mt-sm-5">
-                        <a href="<?php echo URLROOT;?>/UserController/update/<?php echo $row -> id; ?>" class="btn btn-outline-success col-sm-4 mr-sm-2"> Update</a>
-                        <a href="<?php echo URLROOT;?>/UserController/delete/<?php echo $row -> id; ?>" class="btn btn-outline-danger col-sm-4"> Delete</a>
+                                <div class="modal-body">
+                                    <p class="card-text" id="desc"><?php echo $row->Discription;?></p>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
+        <?php $count++; ?>
         <?php endforeach; ?>
     </div>
 
+</div>
 
 
 <!-- footer -->

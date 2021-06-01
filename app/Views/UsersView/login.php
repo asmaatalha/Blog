@@ -12,20 +12,23 @@
 
                         <div class="form-group">
                             <label for="name">Username:</label>
-                            <input class="form-control" type="text" placeholder="Enter username" name="name" id="username" required>
+                            <input class="form-control" type="text" placeholder="Enter username" name="name" id="username" >
+                            <small>Error Messege</small>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input class="form-control" type="email" placeholder="Enter email" name="email" id="email" required>
+                            <input class="form-control" type="email" placeholder="Enter email" name="email" id="email" >
+                            <small>Error Messege</small>
                         </div>
 
                         <div class="form-group">
                             <label for="pwd">Password:</label>
-                            <input class="form-control" type="password" placeholder="Enter password" name="pwd" id="password" required>
+                            <input class="form-control" type="password" placeholder="Enter password" name="pwd" id="password" >
+                            <small>Error Messege</small>
                         </div>
                         
-                        <button class="form-control" type="submit" name="submit" id="butt">login</button>
+                        <button class="form-control btn" type="submit" name="submit" id="butt" onclick="formValidate()">login</button>
                     </form>
                 </div>
             </div>
